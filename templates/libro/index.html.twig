@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>Lista de Libros</title>
+    <!-- Enlace al CSS de DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
 </head>
 <body>
     <h1>Lista de Libros</h1>
 
-    <table border="1">
+    <table border="1" id="tablaLibros">
         <thead>
             <tr>
                 <th>ID</th>
@@ -34,5 +36,18 @@
     </table>
     <p><a href="{{ path('app_libro_nuevo') }}">Insertar nuevo libro</a></p>
 
+
+    <!-- Enlace a jQuery (requerido para DataTables) -->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    
+    <!-- Enlace a JavaScript de DataTables -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+    <!-- Inicialización de DataTables -->
+    <script>
+        $(document).ready(function() {
+            $('#tablaLibros').DataTable();  // Inicializa DataTables en la tabla con id "tablaLibros"
+        });
+    </script>
 </body>
 </html>
