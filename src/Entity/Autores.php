@@ -20,6 +20,10 @@ class Autores
     #[ORM\OneToOne(targetEntity: Libro::class, mappedBy: 'autor')]
     private ?Libro $libro = null;
 
+    // Relación de 1 a n con la entidad Editorial
+    #[ORM\ManyToOne(targetEntity: Editorial::class)]
+    private ?Editorial $editorial = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +49,18 @@ class Autores
     public function setLibro(Libro $libro): static
     {
         $this->libro = $libro;
+
+        return $this;
+    }
+
+    public function getEditorial(): ?Editorial
+    {
+        return $this->editorial;
+    }
+
+    public function setEditorial(Editorial $editorial): static
+    {
+        $this->editorial = $editorial;
 
         return $this;
     }

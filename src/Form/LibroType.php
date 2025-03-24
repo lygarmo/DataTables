@@ -22,21 +22,22 @@ class LibroType extends AbstractType
                 'label' => 'Título del libro',
                 'attr' => ['placeholder' => 'Introduce el título del libro'],
             ])
-            ->add('autor', EntityType::class, [
-                'class' => Autores::class,  // Aquí definimos que el campo es de la entidad 'Autores'
-                'choice_label' => 'nombre', // Definimos qué atributo de la entidad mostrar en el select (por ejemplo, 'nombre')
-                'placeholder' => 'Selecciona un autor', // Mensaje que aparece en el desplegable
-                'required' => true,  // Hacemos el campo obligatorio
-            ])
-            ->add('a_publicacion', IntegerType::class, [
-                'label' => 'Año de publicación',
-                'attr' => ['placeholder' => 'Introduce el año de publicación'],
-            ])
             ->add('editorial', EntityType::class, [
                 'class' => Editorial::class,
                 'choice_label' => 'nombre', // Usamos el campo 'nombre' para mostrar la editorial
                 'placeholder' => 'Selecciona una editorial',
                 'required' => true,
+            ])
+            ->add('autor', EntityType::class, [
+                'class' => Autores::class,  // Aquí definimos que el campo es de la entidad 'Autores'
+                'choice_label' => 'nombre', // Definimos qué atributo de la entidad mostrar en el select (por ejemplo, 'nombre')
+                'placeholder' => 'Selecciona un autor', // Mensaje que aparece en el desplegable
+                'required' => true,  // Hacemos el campo obligatorio
+                'disabled' => true,  // Deshabilitado inicialmente
+            ])
+            ->add('a_publicacion', IntegerType::class, [
+                'label' => 'Año de publicación',
+                'attr' => ['placeholder' => 'Introduce el año de publicación'],
             ])
             ->add('guardar', SubmitType::class, [
                 'label' => 'Guardar libro',

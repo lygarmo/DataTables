@@ -116,5 +116,14 @@ final class LibroController extends AbstractController{
 
     }
 
+    #[Route('/libro/autores/{editorialId}', name: 'get_autores_por_editorial')]
+    public function getAutoresPorEditorial($editorialId, AutoresRepository $autoresRepository)
+    {
+        // Buscar los autores de la editorial seleccionada
+        $autores = $autoresRepository->findBy(['editorial' => $editorialId]);
+
+        
+    }
+
 
 }
